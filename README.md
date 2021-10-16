@@ -1,0 +1,2 @@
+# Sales-Insight-Data-Analysis-Project
+This project is based on the case study of a computer hardware business which is facing challenges in dynamically changing market. Used MySQL database and analyzed it, performed ETL and data cleaning operations in Power BI to build Power BI dashboard to get real time sales insight for the sales director of the company. Developed my business analytical skills while working on this project.
