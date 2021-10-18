@@ -9,7 +9,8 @@ This project is based on the case study of a computer hardware business which is
 ## Process
 So in order to collect all these infomation we analyzed the data with the help of some tools. Used MySQL database and analyzed it, performed ETL and data cleaning operations in Power Query Editor, performed data modelling, used DAX (Data Analysis Expressions) and built Power BI dashboard in Microsoft Power BI Desktop to get real time sales insight showing most possible and important aspects for the sales director of the company.
 
-![Here is the process flow:](C:\Users\Sujeeta Tripathi\Pictures\project1)
+![Here is the process flow:](C:/Users/Sujeeta Tripathi/Pictures/project1)
+
 
 
 
