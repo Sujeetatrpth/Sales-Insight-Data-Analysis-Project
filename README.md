@@ -14,6 +14,75 @@ Here is the process flow:
 
 ![Screenshot (97)](https://user-images.githubusercontent.com/90664702/137720291-47e20c71-30a9-44a0-bd9e-01e64bc5ead2.png)
 
+
+
+# Data Analysis using MySQL
+
+!["C:\Users\Sujeeta Tripathi\Pictures\project1\project11\unnamed.jpg"]
+
+# To show all customer records:
+
+SELECT * FROM customers;
+
+# To show total number of customers:
+
+SELECT count(*) FROM customers;
+
+# To show transactions for Mumbai market (Mumbai market code: Mark002):
+
+SELECT * FROM transactions where market_code='Mark002';
+
+# To show codes of distinct products that were sold in chennai:
+
+SELECT distinct product_code FROM transactions where market_code='Mark001';
+
+# To show transactions where currency is in US dollars:
+
+SELECT * from transactions where currency="USD"
+
+# To show transactions in 2020 join by date table:
+
+SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;
+
+# To show total revenue in year 2020:
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";
+
+# To show total revenue in year 2020, April Month:
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and date.month_name="April" and (transactions.currency="INR\r" or transactions.currency="USD\r");
+
+# To show total revenue in year 2018 in Delhi NCR:
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2018 and transactions.market_code="Mark004";
+
+
+# Data Analysis using PowerBI
+
+
+# Formula to create normalised sales amount column:
+
+= Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)
+
+# Other operations in Power BI are-
+
+1. Removed bottom rows from sales markets table using   👉 Remove Rows
+2. Removed -1 & 0 from sales_amount column in sales transactions table 
+
+# DAX functions used
+
+1. To create Base Measure Profit Margin 👉  Profit Margin % = DIVIDE([Total Profit Margin],[Revenue],0)
+3. To create Base Measure Profit Margin Contribution % 👉  Profit Margin Contribution % = DIVIDE([Total Profit Margin],CALCULATE([Total Profit Margin],ALL('sales products'),ALL('sales customers'),ALL('sales markets')))
+4. To create Base Measure Revenue 👉  Revenue = SUM('sales transactions'[Norm_sales_amount])
+5. To create Base Measure Revenue Contribution % 👉  Revenue Contribution % = DIVIDE([Revenue],CALCULATE([Revenue],ALL('sales products'),ALL('sales customers'),ALL('sales markets')))
+
+
+
+
+
+
+
+
 ## Final Result
 An automated Power BI dashboard was created providing sales insights in a very less time from all necessary aspects in order to help the sales director in data driven decision making.
 
