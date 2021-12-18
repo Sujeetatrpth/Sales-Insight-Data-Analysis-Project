@@ -67,9 +67,7 @@ SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON trans
 ![PowerBI-Logo](https://user-images.githubusercontent.com/90664702/139130315-1dccb1c4-0926-46ba-a4b0-6d56f52b03f8.png)
 
 
-## Formula to create normalised sales amount column:
 
-= Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)
 
 ## Other operations in Power BI are-
 
